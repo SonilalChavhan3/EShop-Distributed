@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36705.20 d17.14
+VisualStudioVersion = 17.14.36705.20
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aspire", "Aspire", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHost", "AppHost\AppHost.csproj", "{BA9BE99F-4D86-4DB4-B4A3-731E8AE63C56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceDefaults", "ServiceDefaults\ServiceDefaults.csproj", "{75A0FEAB-68D0-437B-AD3F-AD6E4735A79F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog", "Catalog\Catalog.csproj", "{C4F761E8-674E-7804-3E8F-374E41B75BE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{75A0FEAB-68D0-437B-AD3F-AD6E4735A79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75A0FEAB-68D0-437B-AD3F-AD6E4735A79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75A0FEAB-68D0-437B-AD3F-AD6E4735A79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4F761E8-674E-7804-3E8F-374E41B75BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4F761E8-674E-7804-3E8F-374E41B75BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4F761E8-674E-7804-3E8F-374E41B75BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4F761E8-674E-7804-3E8F-374E41B75BE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BA9BE99F-4D86-4DB4-B4A3-731E8AE63C56} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{75A0FEAB-68D0-437B-AD3F-AD6E4735A79F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C4F761E8-674E-7804-3E8F-374E41B75BE9} = {6D4D75DD-C20B-40AC-9B23-545C58B8DEBB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B63EECD-1124-49FF-833D-9183D29C6E22}
