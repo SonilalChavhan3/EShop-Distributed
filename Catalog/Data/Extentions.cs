@@ -23,7 +23,7 @@ namespace Catalog.Data
             context.Products.AddRange(Products);
             context.SaveChanges();
 
-            
+
         }
 
         public static readonly List<Product> Products = new()
@@ -36,7 +36,10 @@ namespace Catalog.Data
                 ImageUrl = "images/products/laptop.png",
                 Quantity = 10,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(
+                            new DateTime(2025, 1, 1),
+                             DateTimeKind.Utc
+                                                )
             },
             new Product
             {
@@ -46,7 +49,10 @@ namespace Catalog.Data
                 ImageUrl = "images/products/smartphone.png",
                 Quantity = 25,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(
+            new DateTime(2025, 1, 1),
+            DateTimeKind.Utc
+        )
             },
             new Product
             {
@@ -56,7 +62,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/tablet.png",
                 Quantity = 15,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             },
             new Product
             {
@@ -66,7 +72,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/mouse.png",
                 Quantity = 50,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             },
             new Product
             {
@@ -76,7 +82,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/keyboard.png",
                 Quantity = 40,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             },
             new Product
             {
@@ -86,7 +92,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/monitor.png",
                 Quantity = 20,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             },
             new Product
             {
@@ -96,7 +102,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/printer.png",
                 Quantity = 8,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             },
             new Product
             {
@@ -106,7 +112,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/harddrive.png",
                 Quantity = 30,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             },
             new Product
             {
@@ -116,7 +122,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/webcam.png",
                 Quantity = 18,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             },
             new Product
             {
@@ -126,7 +132,7 @@ namespace Catalog.Data
                 ImageUrl = "images/products/speaker.png",
                 Quantity = 22,
                 IsActive = true,
-                CreatedAt = new DateTime(2025, 1, 1)
+                CreatedAt = DateTime.SpecifyKind(new DateTime(2025, 1, 1), DateTimeKind.Utc)
             }
         };
     }
