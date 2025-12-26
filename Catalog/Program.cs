@@ -1,11 +1,14 @@
 
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
 // Add services to the container.
 builder.AddNpgsqlDbContext<ProductDbContext>(connectionName: "catalogdb");
+builder.Services.AddScoped<ProductService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

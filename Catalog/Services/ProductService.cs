@@ -2,7 +2,7 @@
 {
     public class ProductService(ProductDbContext context)
     {
-        public async Task<List<Product>> GetAllProductsAsync()
+        public async Task<IEnumerable<Product>> GetProductsAsync()
         {
             return await context.Products.ToListAsync();
         }
