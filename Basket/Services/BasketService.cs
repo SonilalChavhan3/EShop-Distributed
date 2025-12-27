@@ -30,5 +30,17 @@ namespace Basket.Services
         {
             await cache.RemoveAsync(userName);
         }
+        public async Task UpdateBasketsItemProductPrices(int productId, decimal newPrice)
+        {
+            var basket = await GetBasketAsync("swn");
+
+            var item = basket!.Items.FirstOrDefault(i => i.ProductId == productId);
+            if (item is not null)
+            {
+                item.Price = newPrice;
+                var serializedBasket = JsonSerializer.Serialize(basket);
+                await cache.SetStringAsync(basket.UserName, serializedBasket);
+
+            }
     }
 }
