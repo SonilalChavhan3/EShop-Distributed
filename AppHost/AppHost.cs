@@ -8,10 +8,10 @@ var catlogDb = postgres.AddDatabase("catalogdb");
 var cache = builder.AddRedis("cache").WithRedisInsight().WithDataVolume().WithLifetime(ContainerLifetime.Persistent);
 
 //Projects
-builder.AddProject<Projects.Catalog>("catalog").WithReference(catlogDb).WaitFor(catlogDb);
+var catalog = builder.AddProject<Projects.Catalog>("catalog").WithReference(catlogDb).WaitFor(catlogDb);
 
 
-builder.AddProject<Projects.Basket>("basket").WithReference(cache).WaitFor(cache); ;
+builder.AddProject<Projects.Basket>("basket").WithReference(cache).WithReference(catalog).WaitFor(cache);
 
 
 builder.Build().Run();
