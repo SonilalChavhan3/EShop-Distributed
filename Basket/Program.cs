@@ -1,7 +1,10 @@
+using Basket.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 builder.AddRedisDistributedCache(connectionName:"cache");
+builder.Services.AddScoped<BasketService>();
 // Add services to the container.
 
 builder.Services.AddControllers();
