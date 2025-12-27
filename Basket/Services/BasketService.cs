@@ -6,13 +6,13 @@ namespace Basket.Services
 {
     public class BasketService(IDistributedCache cache)
     {
-        public async Task<ShopingCart?> GetBasketAsync(string userName)
+        public async Task<ShoppingCart?> GetBasketAsync(string userName)
         {
             var basket = await cache.GetStringAsync(userName);
-            return string.IsNullOrEmpty(basket) ? null:JsonSerializer.Deserialize<ShopingCart>(basket);
+            return string.IsNullOrEmpty(basket) ? null:JsonSerializer.Deserialize<ShoppingCart>(basket);
         }
        
-        public async Task UpdateBasketAsync(ShopingCart basket)
+        public async Task UpdateBasketAsync(ShoppingCart basket)
         {
             var serializedBasket = JsonSerializer.Serialize(basket);
             await cache.SetStringAsync(basket.UserName, serializedBasket);
