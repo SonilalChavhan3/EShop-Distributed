@@ -1,6 +1,9 @@
-﻿namespace Catalog.Services
+﻿using MassTransit;
+using ServiceDefaults.Messaging.Events;
+
+namespace Catalog.Services
 {
-    public class ProductService(ProductDbContext context)
+    public class ProductService(ProductDbContext context, IBus bus)
     {
         public async Task<IEnumerable<Product>> GetProductsAsync()
         {
@@ -18,8 +21,21 @@
             await context.SaveChangesAsync();
         }
 
-        public async Task UpdateProductAsync(Product updatedProduct,Product inputProduct)
+        public async Task UpdateProductAsync(Product updatedProduct, Product inputProduct)
         {
+            //if prie has changed, raise ProductPriceChanged intigration event 
+            if (updatedProduct.Price != inputProduct.Price)
+            {
+                var intigrationEvent = new ProductPriceCnagedIntegrationEvent
+                {
+                    ProductId = updatedProduct.Id,
+                    Name = inputProduct.Name,
+                    Description = inputProduct.Description,
+                    Price = inputProduct.Price,
+                    ImageUrl = inputProduct.ImageUrl
+                };
+                await bus.Publish(intigrationEvent);
+            }
             updatedProduct.Name = inputProduct.Name;
             updatedProduct.Description = inputProduct.Description;
             updatedProduct.Price = inputProduct.Price;
