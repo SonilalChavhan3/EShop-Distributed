@@ -9,4 +9,7 @@ var catlogDb = postgres.AddDatabase("catalogdb");
 builder.AddProject<Projects.Catalog>("catalog").WithReference(catlogDb).WaitFor(catlogDb);
 
 
+builder.AddProject<Projects.Basket>("basket");
+
+
 builder.Build().Run();
