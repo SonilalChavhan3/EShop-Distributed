@@ -1,7 +1,5 @@
 
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
@@ -20,6 +18,7 @@ app.MapDefaultEndpoints();
 
 app.UseMigrations();
 
+app.MapProdutEndpoints();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
