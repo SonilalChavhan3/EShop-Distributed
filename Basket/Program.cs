@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
-
+builder.AddRedisDistributedCache(connectionName:"cache");
 // Add services to the container.
 
 builder.Services.AddControllers();
