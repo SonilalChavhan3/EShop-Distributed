@@ -23,7 +23,7 @@ var catalog = builder.AddProject<Projects.Catalog>("catalog")
     .WaitFor(rabbitMq);
 
 
-builder.AddProject<Projects.Basket>("basket")
+var basket = builder.AddProject<Projects.Basket>("basket")
     .WithReference(cache)
     .WithReference(catalog)
     .WithReference(rabbitMq)
@@ -31,6 +31,15 @@ builder.AddProject<Projects.Basket>("basket")
     .WaitFor(cache)
     .WaitFor(rabbitMq)
     .WaitFor(keycock);
+
+
+
+var webapp = builder.AddProject<Projects.WebApp>("webapp")
+    .WithExternalHttpEndpoints()
+    .WithReference(catalog)
+    .WaitFor(catlogDb)
+    .WithReference(basket)
+    .WaitFor(basket);
 
 
 
