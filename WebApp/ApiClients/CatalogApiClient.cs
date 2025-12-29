@@ -1,4 +1,5 @@
-﻿using Catalog.Models;
+﻿
+using WebApp.Models;
 
 namespace WebApp.ApiClients
 {
