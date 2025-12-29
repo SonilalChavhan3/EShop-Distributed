@@ -36,9 +36,10 @@ var basket = builder.AddProject<Projects.Basket>("basket")
 
 var webapp = builder.AddProject<Projects.WebApp>("webapp")
     .WithExternalHttpEndpoints()
+     .WithReference(cache)
     .WithReference(catalog)
-    .WaitFor(catlogDb)
     .WithReference(basket)
+    .WaitFor(catlogDb)
     .WaitFor(basket);
 
 
