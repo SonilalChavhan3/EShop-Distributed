@@ -10,6 +10,11 @@ var catlogDb = postgres.AddDatabase("catalogdb");
 var cache = builder.AddRedis("cache").WithRedisInsight().WithDataVolume().WithLifetime(ContainerLifetime.Persistent);
 var rabbitMq = builder.AddRabbitMQ("rabbitmq").WithManagementPlugin().WithDataVolume().WithLifetime(ContainerLifetime.Persistent);
 
+var keycock = builder.AddKeycloak("keycloak", 8070)
+    .WithDataVolume()
+    .WithLifetime(ContainerLifetime.Persistent);
+    
+
 //Projects
 var catalog = builder.AddProject<Projects.Catalog>("catalog")
     .WithReference(catlogDb)
@@ -22,8 +27,11 @@ builder.AddProject<Projects.Basket>("basket")
     .WithReference(cache)
     .WithReference(catalog)
     .WithReference(rabbitMq)
+    .WithReference(keycock)
     .WaitFor(cache)
-    .WaitFor(rabbitMq);
+    .WaitFor(rabbitMq)
+    .WaitFor(keycock);
+
 
 
 builder.Build().Run();

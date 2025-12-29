@@ -23,15 +23,13 @@ Content-Type: application/json
 
 ###
 ###
-PUT {{Catalog_HostAddress}}/12
+PUT {{Catalog_HostAddress}}/1
 Content-Type: application/json
 {
- "ID":"11",
-  "Name": "Sample Product",
+ "ID":"1",
+  "Name": "Laptop",
   "Description": "This is a sample product description.",
-  "Price": 19.99,
-  "Quantity": 100,
-  "IsActive": true,
+  "Price": 19,
   "ImageUrl": "sample-product.png"
 }
 
