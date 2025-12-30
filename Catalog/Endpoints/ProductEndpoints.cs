@@ -46,6 +46,16 @@ namespace Catalog.Endpoints
                 await service.DeleteProductAsync(existingProduct);
                 return Results.NoContent();
             }).WithName("DeleteProduct").Produces(StatusCodes.Status204NoContent).Produces(StatusCodes.Status404NotFound);
+
+            // Support AI
+            group.MapGet("/support/{query}", async (string query, ProductAIService service) =>
+            {
+                var response = await service.SupportAsync(query);
+
+                return Results.Ok(response);
+            })
+            .WithName("Support")
+            .Produces(StatusCodes.Status200OK);
         }
 
     }
