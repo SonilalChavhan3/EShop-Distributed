@@ -12,10 +12,11 @@ builder.AddNpgsqlDbContext<ProductDbContext>(connectionName: "catalogdb");
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddMassTransitWithAssemblies(Assembly.GetExecutingAssembly());
 
+builder.AddOllamaSharpChatClient("ollama-llama3.2");
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
