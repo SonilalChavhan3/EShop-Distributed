@@ -10,9 +10,10 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.AddNpgsqlDbContext<ProductDbContext>(connectionName: "catalogdb");
 builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<ProductAIService>();
 builder.Services.AddMassTransitWithAssemblies(Assembly.GetExecutingAssembly());
 
-builder.AddOllamaSharpChatClient("ollama-llama3.2");
+builder.AddOllamaSharpChatClient("ollama-llama3-2");
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
